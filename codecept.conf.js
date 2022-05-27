@@ -3,7 +3,7 @@ exports.config = {
   output: './output',
   helpers: {
     Playwright: {
-      url: 'http://localhost',
+      url: 'https://dnp.megafon.ru/',
       show: true,
       browser: 'chromium'
     }

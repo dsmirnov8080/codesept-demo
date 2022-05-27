@@ -1,7 +1,15 @@
-open main page
-I.click('Адресный план'); //click on data-test-item-id="AddressPlan"
+Feature('test1');
 
-I.waitForElement('#agree_button', 30); // secs
-// clicks a button only when it is visible
-//https://codecept.io/helpers/Playwright/#clearcookie
-I.click('#agree_button');
+Scenario('Открыть главную страницу, адресный план, потребность', ({ I }) => {
+
+    I.amOnPage('https://dnp.megafon.ru/');
+    I.waitForElement('a[data-test-item-id="AddressPlan"]', 10);
+    //I.see('Адресный план', 'a[data-test-item-id="AddressPlan"]');
+    //I.seeElement('.address-plan-panel.full-size');
+    I.click('a[data-test-item-id="AddressPlan"]');
+    //I.waitToHide('#preloader-block', 20);
+    I.seeElement('.address-plan-panel.full-size');
+
+    I.saveScreenshot('debug.png');
+
+});
