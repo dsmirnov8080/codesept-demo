@@ -2,16 +2,12 @@ Feature('test1');
 
 Scenario('Открыть главную страницу, адресный план, потребность', ({ I }) => {
 
-    I.amOnPage('https://dnp.megafon.ru/');
-    I.waitForElement('a[data-test-item-id="AddressPlan"]', 10);
-    I.waitForResponse('https://dnp.megafon.ru/api/address-plan-service/technical-solution', 30); //Разобраться, почему так долго выполняется запрос.
-
-    I.click('a[data-test-item-id="AddressPlan"]');
-    //I.waitToHide('#preloader-block', 20);
-    I.seeElement('.address-plan-panel.full-size');
-    I.waitForResponse('https://dnp.megafon.ru/api/address-plan-service/issue?limit=20&offset=0', 30); //Разобраться, почему так долго выполняется запрос.
-    //I.wait(30);
-
-    I.saveScreenshot('debug.png');
+    I.amOnPage('https://dnp.megafon.ru/'); //Открыть DNP
+    I.waitForElement('a[data-test-item-id="AddressPlan"]', 10); //Ждем до 10 секунд до появления элемента Адресный план
+    I.waitForResponse('https://dnp.megafon.ru/api/address-plan-service/technical-solution', 30); //Ждем до 30 секунд прогрузки тех решений
+    I.click('a[data-test-item-id="AddressPlan"]'); //Кликаем по Адресному плану
+    I.seeElement('.address-plan-panel.full-size'); //Видим форму Адресного плана
+    I.waitForResponse('https://dnp.megafon.ru/api/address-plan-service/issue?limit=20&offset=0', 30); //Ждем до 30 секунд прогрузки потребностей
+    I.saveScreenshot('debug.png'); //Делаем скриншот в каталог /output
 
 });

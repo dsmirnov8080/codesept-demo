@@ -6,9 +6,5 @@
    npx codeceptjs init
    npx codeceptjs gt
 
-3. Запустить тесты:
-   npx codeceptjs run --steps
-
-npx codeceptjs run github_test.js
-# or
-npx codeceptjs run admin/login_test.js
+3. Запустить тест:
+   npx codeceptjs run dnp1_test.js
